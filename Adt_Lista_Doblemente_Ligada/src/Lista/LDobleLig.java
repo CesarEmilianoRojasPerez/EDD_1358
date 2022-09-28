@@ -12,10 +12,12 @@ package Lista;
 public class LDobleLig<T> {
     NDoble<T> head;
     int Tamanio;
+    NDoble<T> cola;
 
     public LDobleLig() {
         this.head = null;
         this.Tamanio = 0;
+        this.cola = null;
     }
     
     public boolean estaVacia() {
@@ -23,6 +25,11 @@ public class LDobleLig<T> {
     }
 
     public int getTamanio() {
+        NDoble aux=this.head;
+        while(aux!= null){
+            aux.getSiguiente();
+            Tamanio +=1 ;
+        }
         return Tamanio;
     }
 
@@ -30,6 +37,7 @@ public class LDobleLig<T> {
         NDoble nuevo = new NDoble(valor);
         if (this.estaVacia()) {
             this.head = nuevo;
+            this.cola = nuevo;
         } else {
             NDoble aux = this.head;
             while (aux.getSiguiente() != null) {
@@ -37,6 +45,7 @@ public class LDobleLig<T> {
             }
             nuevo.setAnterior(aux);
             aux.setSiguiente(nuevo);
+            this.cola= aux;
         }
     }
     
@@ -86,6 +95,7 @@ public class LDobleLig<T> {
             NDoble aux = this.head;
             while (aux.getSiguiente().getSiguiente() != null){
                 aux = aux.getSiguiente();
+                this.cola=aux;
                 
             }
             aux.setSiguiente(null);
@@ -119,6 +129,15 @@ public class LDobleLig<T> {
         while (curr_node != null) {
             System.out.print(curr_node);
             curr_node = curr_node.getSiguiente();
+        }
+        System.out.println("");
+    }
+    
+    public void transversalFinal(){
+        NDoble curr_node = this.cola;
+        while(curr_node != null){
+            System.out.print(curr_node);
+            curr_node = curr_node.getAnterior();
         }
         System.out.println("");
     }

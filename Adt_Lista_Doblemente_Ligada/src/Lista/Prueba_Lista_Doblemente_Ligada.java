@@ -35,6 +35,8 @@ public class Prueba_Lista_Doblemente_Ligada {
         System.out.println(j.buscar(56));
         j.actualizar(50, 8);
         j.transversal();
+        j.agregarDespuesDe(8, 3);
+        j.transversalFinal();
     }
 }
     
