@@ -124,6 +124,37 @@ public class LDobleLig<T> {
         }
     }
     
+    public void posicion(int pos){
+        NDoble aux = this.head;
+        if(!this.estaVacia()){
+            for (int contador = 1; contador < pos; contador++){
+                aux=aux.getSiguiente();
+            }
+            System.out.println("Posicion: "+pos+"\tDato: "+aux.getDato());
+        }
+    }
+    
+     public void posicionInicial(){
+        NDoble aux = this.head;
+        int h = 1;
+        if(!this.estaVacia()){
+            System.out.println("Posicion: "+h+"\tDato: "+aux.getDato());
+        }
+    }
+    
+    public void posicionFinal(){
+        NDoble aux1 = this.cola;
+        NDoble aux2 = this.head;
+        if(!this.estaVacia()){
+            int h=1;
+            while (aux2.getSiguiente().getSiguiente() != null){
+                aux2 = aux2.getSiguiente();
+                h +=1;
+            }
+            System.out.println("Posicion: "+h+"\tDato: "+aux1.getDato());
+        }
+    }
+    
     public void transversal() {
         NDoble curr_node = this.head;
         while (curr_node != null) {

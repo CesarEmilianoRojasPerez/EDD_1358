@@ -1,17 +1,23 @@
+package ADT;
 
-public class Adt2D<T> {
+/**
+ *
+ * @author USUARIO
+ * @param <T>
+ */
+public class Adt2D_L<T> {
     private int Ren;
     private int Col;
-    private final ADT_S matriz;
-    private ADT_S cols;
-    private ADT_S<T> Item2;
+    private Adt_L matriz;
+    private Adt_L cols;
+    private Adt_L<T> Item2;
     
-    public Adt2D(int ren, int col){
+    public Adt2D_L(int ren, int col){
         this.Ren = ren;
         this.Col = col;
-        matriz = new ADT_S(ren);
+        matriz = new Adt_L(ren);
         for (int F = 0; F < ren; F++) {
-            matriz.setElemento(F, new ADT_S(col));
+            matriz.setElemento(F, new Adt_L(col));
         }
     }
     
@@ -21,22 +27,15 @@ public class Adt2D<T> {
     
     public void setElemento(int ren,int col, T dato){
         if (comprobacion(ren)){
-            cols = (ADT_S) matriz.getElemento(ren);
+            cols = (Adt_L) matriz.getElemento(ren);
             cols.setElemento(col, dato);          
             matriz.setElemento(ren, (T) cols);
         }
     }
     
-    public void limpiar(T dato){
-        for (int Posi = 0; Posi < this.Ren; Posi++) {
-            Item2 = new ADT_S(this.Ren);
-            Item2.setElemento(Posi, dato);
-            matriz.setElemento(Posi, Item2);
-        }
-    }  
     public T getElemento(int ren,int col){
         if (comprobacion(ren)){
-            cols=(ADT_S)matriz.getElemento(ren);
+            cols=(Adt_L)matriz.getElemento(ren);
             return (T)cols.getElemento(col);
         }
         return null;
@@ -45,10 +44,23 @@ public class Adt2D<T> {
     public int getRen(){
         return this.Ren;
     }
-    
+
     public int getCol(){
         return this.Col;
     }
+    
+    public void limpiar(T dato){
+        for (int Posi1 = 0; Posi1 < this.Ren; Posi1++) {
+            Item2= new Adt_L(this.Ren);
+            int x = 0;
+            while(x < this.Col){
+                Item2.setElemento(x, dato);
+                x+=1;
+            }
+            matriz.setElemento(Posi1, Item2);
+        }
+    }  
+    
     
     @Override
     public String toString() {
@@ -60,6 +72,4 @@ public class Adt2D<T> {
             return matriz.toString();
         }
     }
-    
 }
-
