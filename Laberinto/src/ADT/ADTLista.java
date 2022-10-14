@@ -9,11 +9,11 @@ import java.util.ArrayList;
  *
  * @author USUARIO
  */
-public class Adt<T> {
+public class ADTLista<T> {
     int tamanio;
     ArrayList<T> datos;
     
-    public Adt(int tam){
+    public ADTLista(int tam){
         this.tamanio = tam;
         datos = new ArrayList(this.tamanio);
         for (int i = 0; i < this.tamanio; i++) {

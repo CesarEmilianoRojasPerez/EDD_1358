@@ -15,11 +15,11 @@ public class prueba_Adt {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        AdtPila<Adt> j = new AdtPila();
-        Adt<Integer> p= new Adt(2);
+        AdtPila<ADTLista> j = new AdtPila();
+        ADTLista<Integer> p= new ADTLista(2);
         int x =0;
         while(x<22){
-            Adt<Integer> aux2= new Adt(2);
+            ADTLista<Integer> aux2= new ADTLista(2);
             aux2.setElemento(0, x);
             x+=2;
             aux2.setElemento(1, x);
@@ -27,7 +27,7 @@ public class prueba_Adt {
             j.Push(aux2);
             aux2=null;
         }
-        Adt<Integer> y=new Adt(2);
+        ADTLista<Integer> y=new ADTLista(2);
         j.ImpPila();
         j.Pop();
         j.ImpPila();

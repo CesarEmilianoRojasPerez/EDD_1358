@@ -9,7 +9,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import ADT.Adt;
+import ADT.ADTLista;
 import ADT.Adt2D_L;
 import ADT.AdtPila;
 /**
@@ -23,8 +23,8 @@ public class Tablero_L {
     ArrayList<ArrayList<String>> OutterArray = new ArrayList();
     Adt2D_L<Integer> tablero;
     Adt2D_L<String> tablero2; 
-    AdtPila<Adt> camino;
-    Adt<Integer> aux1;
+    AdtPila<ADTLista> camino;
+    ADTLista<Integer> aux1;
     String[] lineas;
     String[] tamlis;
     int y1,y2;
@@ -96,14 +96,14 @@ public class Tablero_L {
     public AdtPila reglas(){
         String visitado = ANSI_BLUE+"~"+ANSI_RESET;
         camino = new AdtPila();
-        aux1 = new Adt(2);
+        aux1 = new ADTLista(2);
         int Lx=x1;
         int Ly=y1;
         aux1.setElemento(1, this.y1);
         aux1.setElemento(0,this.x1);
         camino.Push(aux1);
         while (tablero.getElemento(Ly, Lx)!= 3){
-            Adt<Integer> aux2= new Adt(2);
+            ADTLista<Integer> aux2= new ADTLista(2);
             aux2=camino.Peek();
             Ly=aux2.getElemento(1);
             Lx=aux2.getElemento(0);
@@ -112,14 +112,14 @@ public class Tablero_L {
             } //Izquierda
             else if(comprobacion(Ly,Lx-1)&&(tablero.getElemento(Ly,Lx-1)==1)|| comprobacion(Ly,Lx-1)&&tablero.getElemento(Ly, Lx-1)==3){
                 if(comprobacion(Ly,Lx-1)&&tablero.getElemento(Ly, Lx-1)==3){
-                    Adt<Integer> aux3=new Adt(2);
+                    ADTLista<Integer> aux3=new ADTLista(2);
                     aux3.setElemento(1,Ly);
                     aux3.setElemento(0,Lx-1);
                     camino.Push(aux3);
                     aux3=null;
                     
                 }else{
-                    Adt<Integer> aux3=new Adt(2);
+                    ADTLista<Integer> aux3=new ADTLista(2);
                     tablero.setElemento(Ly,Lx-1,2);
                     tablero2.setElemento(Ly, Lx-1, visitado);
                     aux3.setElemento(1,Ly);
@@ -131,7 +131,7 @@ public class Tablero_L {
             } //Arriba
             else if(comprobacion(Ly-1,Lx)&&(tablero.getElemento(Ly-1,Lx)==1)|| comprobacion(Ly-1,Lx)&&tablero.getElemento(Ly-1, Lx)==3){
                 if(comprobacion(Ly-1,Lx)&&tablero.getElemento(Ly-1, Lx)==3){
-                    Adt<Integer> aux3=new Adt(2);
+                    ADTLista<Integer> aux3=new ADTLista(2);
                     aux3.setElemento(1,Ly-1);
                     aux3.setElemento(0,Lx);
                     camino.Push(aux3);
@@ -139,7 +139,7 @@ public class Tablero_L {
                     
                 }
                 else{
-                    Adt<Integer> aux3=new Adt(2);
+                    ADTLista<Integer> aux3=new ADTLista(2);
                     tablero.setElemento(Ly-1,Lx,2);
                     tablero2.setElemento(Ly-1,Lx, visitado);
                     aux3.setElemento(1,Ly-1);
@@ -151,7 +151,7 @@ public class Tablero_L {
             }//Derecha
             else if(comprobacion(Ly,Lx+1)&&(tablero.getElemento(Ly,Lx+1)==1)|| comprobacion(Ly,Lx+1)&&tablero.getElemento(Ly, Lx+1)==3){
                 if(comprobacion(Ly,Lx+1)&&tablero.getElemento(Ly, Lx+1)==3){
-                    Adt<Integer> aux3=new Adt(2);
+                    ADTLista<Integer> aux3=new ADTLista(2);
                     aux3.setElemento(1,Ly);
                     aux3.setElemento(0,Lx+1);
                     camino.Push(aux3);
@@ -159,7 +159,7 @@ public class Tablero_L {
 
                 }
                 else{
-                    Adt<Integer> aux3=new Adt(2);
+                    ADTLista<Integer> aux3=new ADTLista(2);
                     tablero.setElemento(Ly,Lx+1,2);
                     tablero2.setElemento(Ly, Lx+1, visitado);
                     aux3.setElemento(1,Ly);
@@ -171,7 +171,7 @@ public class Tablero_L {
             }//Abajo
             else if(comprobacion(Ly+1,Lx)&&(tablero.getElemento(Ly+1,Lx)==1)|| comprobacion(Ly+1,Lx)&&tablero.getElemento(Ly+1, Lx)==3){
                 if(comprobacion(Ly+1,Lx)&&tablero.getElemento(Ly+1, Lx)==3){
-                    Adt<Integer> aux3=new Adt(2);
+                    ADTLista<Integer> aux3=new ADTLista(2);
                     aux3.setElemento(1,Ly+1);
                     aux3.setElemento(0,Lx);
                     camino.Push(aux3);
@@ -179,7 +179,7 @@ public class Tablero_L {
                     
                 }
                 if (comprobacion(Ly+1,Lx)&&(tablero.getElemento(Ly+1,Lx)==1)){
-                    Adt<Integer> aux3=new Adt(2);
+                    ADTLista<Integer> aux3=new ADTLista(2);
                     tablero.setElemento(Ly+1,Lx,2);
                     tablero2.setElemento(Ly+1,Lx, visitado);
                     aux3.setElemento(1,Ly+1);
