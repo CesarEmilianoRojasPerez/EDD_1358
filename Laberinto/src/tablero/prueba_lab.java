@@ -15,10 +15,7 @@ public class prueba_lab {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        File Arch = new File("C:\\Users\\USUARIO\\Desktop\\laberinto.csv");
-        Tablero_L Prueba = new Tablero_L(Arch);
-        System.out.print(Prueba);
-        Prueba.reglas();
+        inicio prueba = new inicio();
         
     }
     

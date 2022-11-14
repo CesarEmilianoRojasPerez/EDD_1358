@@ -89,6 +89,20 @@ public class Tablero_L {
         }
     }
     
+    public void setCoordenadasIni(int x, int y){
+        this.x1= x;
+        this.y1= y;
+        tablero.setElemento(y1,x1,2);
+        tablero2.setElemento(y1, x1,ANSI_PURPLE + "E" + ANSI_RESET);
+    }
+    
+    public void setCoordenadasFin(int x, int y){
+        this.x2= x;
+        this.y2=y;
+        tablero.setElemento(y2,x2,3);
+        tablero2.setElemento(y2, x2,ANSI_PURPLE + "S" + ANSI_RESET);
+    }
+    
     public boolean comprobacion(int i, int j) {
         return !(i < 0 || i >= tablero2.getRen() || j < 0 || j >= tablero2.getCol());
     }
